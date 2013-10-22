@@ -15,10 +15,27 @@
 			body{
 			}
 			
+			body p, body img{
+				margin-left: 30px;
+			}
+			
+			img{
+				margin-top: 10px;
+			}
+			
+			ul{
+				margin-left: 50px;
+			}
+			
+			ul.inner{
+				margin-left: 10px;
+			}
+			
 			h1{
 				width: 100%;
 				background-color: #FFFF99;
 				margin-top: 20px;
+				margin-left: 0px;
 				padding-left: 20px;
 				font-size: 2em;
 				border-bottom: 5px #E8E8E8 solid;
@@ -28,15 +45,16 @@
 			}
 			
 			h3{
-				padding-left: 20px;
+				margin-left: 20px;
 				margin-top: 20px;
 				font-weight: normal;
-				font-size: 1.2em;
+				font-size: 1.3em;
 			}
 			
 			h2{
 				padding-left: 20px;
 				margin-top: 20px;
+				font-size: 1.5em;
 				font-weight: normal;
 				width: 100%;
 				background-color: #FFFFCC;
@@ -47,7 +65,6 @@
 			
 			p{
 				margin-top: 10px;
-				padding-left: 30px;
 				max-width: 800px;
 			}
 		</style>
@@ -66,12 +83,65 @@
 			Table of Contents
 		</h3>
 		<p>
-			<a href="#ram">256-Byte RAM</a>
+			<ul>
+				<li>
+					<a href="#ram">256-Byte RAM</a>
+					<ul class="inner">
+						<li>
+							<a href="#dlatch">D-Latch</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
 		</p>
-		<a name="ram">
+		<a name="ram"></a>
 		<h2 class="device">
 			256-Byte RAM
 		</h2>
+		<p>
+			This component allows the storage of 256 Byte of Data. It has an address width of 8 bit, as well as an 8-bit data input and an 8-bit data output line. Furthermore, there's a reset input which sets the contents of all cells to 0x00, a "write" input which determines whether or not the data at the input line should be written into the location set at the address input and a timer input.
+		</p>
+		<img src="./memory.png" alt="256 Byte Memory" title="The memory component in logisim" />
+		<p>
+			Let's have a look at the individual components.
+		<a name="dlatch"></a>
+		<h3>
+			The D-Latch
+		</h3>
+		<p>
+			At the base of the RAM lies the D-Latch.
+		</p>
+		<img src="./d-latch.png" alt="D-Latch image" title="D-Latch in logisim" />
+		<p>
+			It has two inputs and two outputs. The first input is the data input, the second input is the "write" flag. If it is true, the latch will assume the value of the data input.
+		</p>
+		<p>
+			The output consists of a data-out bit and its inverse.
+		</p>
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	
