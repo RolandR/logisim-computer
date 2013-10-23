@@ -13,7 +13,8 @@
 			}
 			
 			body{
-        padding-bottom: 30px;
+				overflow-x: hidden;
+				padding-bottom: 100px;
 			}
 			
 			body p, body img{
@@ -100,11 +101,26 @@
 			256-Byte RAM
 		</h2>
 		<p>
-			This component allows the storage of 256 Byte of Data. It has an address width of 8 bit, as well as an 8-bit data input and an 8-bit data output line. Furthermore, there's a reset input which sets the contents of all cells to 0x00, a "write" input which determines whether or not the data at the input line should be written into the location set at the address input and a timer input.
+			This component allows the storage of 256 Byte of Data. It has an address width of 8 bit, as well as an 8-bit data input and an 8-bit data output line. Furthermore, there's a reset input which sets the contents of all cells to 0x00, a "write" input which determines whether or not the data at the input line should be written into the location set at the address input,<!--Oxford comma, bitches!--> and a timer input.
 		</p>
 		<img src="./memory.png" alt="256 Byte Memory" title="The memory component in logisim" />
 		<p>
 			Let's have a look at the individual components.
+		</p>
+		<a name="memgrid"></a>
+		<h3>
+			256-Bit Memory Grid
+		</h3>
+		<p>
+			A 256-Byte RAM module is composed of eight 256-Bit M
+		</p>
+		<img src="./d-latch.png" alt="D-Latch image" title="D-Latch in logisim" />
+		<p>
+			It has two inputs and two outputs. The first input is the data input, the second input is the "write" flag. If it is true, the latch will assume the value of the data input.
+		</p>
+		<p>
+			The output consists of a data-out bit and its inverse.
+		</p>
 		<a name="dlatch"></a>
 		<h3>
 			The D-Latch
@@ -119,11 +135,13 @@
 		<p>
 			The output consists of a data-out bit and its inverse.
 		</p>
-    <h2 class="device">TTY Decoder</h2>
-    <p>The TTY Decoder takes a 4 bit number and converts it to the corresponding ASCII character which is used on the input of the TTY component of logisim.</p>
-    <img src="TTYDecoder.png" alt="TTY Decoder" title="TTY Decoder" />
-    <p>The second input is the system clock. <b>The TTY Decoder reads the input data every other clock tick.</b> The first clock cycle is used to print the number, the second to print a space character.</p>
-    <p>The internal functionality is pretty simple. First i extend the 4 bit width input value to a 8 bit width. I then add 30 to the input value to shift it to the right spot in the ASCII table. Then i cut the bit width to 7 bit to fit the TTY component input.</p>
+		</p>
+
+		<h2 class="device">TTY Decoder</h2>
+		<p>The TTY Decoder takes a 4 bit number and converts it to the corresponding ASCII character which is used on the input of the TTY component of logisim.</p>
+		<img src="TTYDecoder.png" alt="TTY Decoder" title="TTY Decoder" />
+		<p>The second input is the system clock. <b>The TTY Decoder reads the input data every other clock tick.</b> The first clock cycle is used to print the number, the second to print a space character.</p>
+		<p>The internal functionality is pretty simple. First i extend the 4 bit width input value to a 8 bit width. I then add 30 to the input value to shift it to the right spot in the ASCII table. Then i cut the bit width to 7 bit to fit the TTY component input.</p>
 	</body>
 </html>
 
