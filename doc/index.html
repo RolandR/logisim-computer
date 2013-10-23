@@ -13,6 +13,7 @@
 			}
 			
 			body{
+        padding-bottom: 30px;
 			}
 			
 			body p, body img{
@@ -118,6 +119,11 @@
 		<p>
 			The output consists of a data-out bit and its inverse.
 		</p>
+    <h2 class="device">TTY Decoder</h2>
+    <p>The TTY Decoder takes a 4 bit number and converts it to the corresponding ASCII character which is used on the input of the TTY component of logisim.</p>
+    <img src="TTYDecoder.png" alt="TTY Decoder" title="TTY Decoder" />
+    <p>The second input is the system clock. <b>The TTY Decoder reads the input data every other clock tick.</b> The first clock cycle is used to print the number, the second to print a space character.</p>
+    <p>The internal functionality is pretty simple. First i extend the 4 bit width input value to a 8 bit width. I then add 30 to the input value to shift it to the right spot in the ASCII table. Then i cut the bit width to 7 bit to fit the TTY component input.</p>
 	</body>
 </html>
 
